@@ -1,0 +1,12 @@
+{
+  "name": "node_202104_21",
+  "version": "1.0.0",
+  "description": "实践掘金文章理论",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

@@ -1,0 +1,29 @@
+const http = require("http");
+const url = require("url");
+
+/**使用http创建服务 */
+http
+  .createServer(function (req, res) {
+    let result = {};
+    if (req.url !== "/favicon.ico") {
+      /**使用url的parse方法
+       * parse需要两参数;
+       * 第一个是地址;
+       * 第二个是true的话表示把get传值转化成对象;
+       */
+      result = url.parse(req.url, true);
+    }
+    /**设置HTTP头部信息：状态码：200 ，文件类型:html,字符集：utf-8*/
+    res.writeHead(200, { "Content-Type": "text/html;charset=UTF-8" });
+
+    /**往页面打印值 */
+    res.write(
+      `<h1 style='text-algin:center'>姓名：${result.query.username} 年龄：${result.query.age}</h1>`
+    );
+
+    /**响应结束 */
+    res.end();
+  })
+  .listen(4000);
+console.log("服务已经启动：http://localhost:4000/");
+console.log(url);
